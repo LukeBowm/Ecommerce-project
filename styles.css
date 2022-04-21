@@ -93,6 +93,7 @@ li {
     text-align: center;
     border: none;
     color: #7342d6;
+    display: none;
 }
 
 .menu__backdrop {
@@ -106,11 +107,19 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
+    transition: all 300ms ease;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .menu--open .menu__backdrop {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu--open {
+    max-height: 100vh;
+    overflow-y: hidden;
 }
 
 .menu__links {
@@ -250,6 +259,7 @@ button:active {
 
 .highlight__wrapper {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .highlight {
@@ -257,7 +267,6 @@ button:active {
     width: calc(100% / 3);
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
@@ -282,6 +291,7 @@ button:active {
 .highlight__subtitle {
     font-size: 20px;
     margin-bottom: 16px;
+    text-align: center;
 }
 
 /* FEATURES */
@@ -369,8 +379,44 @@ footer {
     padding: 0 8px;
 }
 
+/* SMALL PHONES, TABLETS, LARGE SMARTPHONS */
+@media (max-width: 768px) {
+    .header__description {
+        padding: 0 24px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+
+    .book {
+        width: 50%;
+    }
+}
+
+/* SMALL PHONES, LARGE SMARTPHONES */
+
+
+
 @media (max-width: 550px) {
     .nav__links {
         display: none;
+    }
+
+    .btn__menu {
+        display: block;
+    }
+
+    .highlight {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    highlight:not(:last-child) {
+        margin-bottom: 24px;
     }
 }
